@@ -79,7 +79,7 @@
         <input type="email" name="email" required><br>
         Your password:<br>
         <input type="password" name="password" required><br>
-        <br><br>
+        <br><br> 
         <input type="submit" class="btn btn-primary" value="Submit" required>
     </form>
     

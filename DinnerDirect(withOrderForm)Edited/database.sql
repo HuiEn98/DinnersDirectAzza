@@ -20,7 +20,7 @@ CREATE TABLE customers (
                     customerID int(10) UNSIGNED NOT NULL AUTO_INCREMENT,
                     first_name varchar(100) NOT NULL,
                     last_name varchar(100) NOT NULL,
-                    schoolID int(10) UNSIGNED NOT NULL,
+                    schoolID int(11) UNSIGNED NOT NULL,
                     email text NOT NULL,
                     password text NOT NULL,
                     PRIMARY KEY(customerID),
@@ -34,13 +34,16 @@ INSERT INTO customers (customerID, first_name, last_name, schoolID, email, passw
 
 
 CREATE TABLE drivers (
-                                 driverID int(10) UNSIGNED NOT NULL,
+                                 driverID int(10) UNSIGNED NOT NULL AUTO_INCREMENT,
+                                 schoolID int(10) UNSIGNED NOT NULL,
                                  first_name varchar(100) NOT NULL,
                                  last_name varchar(100) NOT NULL,
                                  phonenumber varchar(100) NOT NULL,
+                                 schoolname text,
                                  email text NOT NULL,
                                  password text NOT NULL,
-                                 PRIMARY KEY(driverID)
+                                 PRIMARY KEY(driverID),
+                                 FOREIGN KEY(schoolID) REFERENCES schools(schoolID) ON DELETE RESTRICT ON UPDATE CASCADE
 )ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 INSERT INTO drivers (driverID, first_name, last_name, phonenumber, email, password) VALUES
